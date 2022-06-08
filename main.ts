@@ -1,3 +1,15 @@
+scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.doorClosedNorth, function (sprite, location) {
+	
+})
+scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.chestClosed, function (sprite, location) {
+    game.over(false)
+    music.wawawawaa.play()
+})
+scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.collectibleInsignia, function (sprite, location) {
+    game.over(true)
+    music.jumpUp.play()
+    game.showLongText("To be Continue...", DialogLayout.Bottom)
+})
 let mySprite = sprites.create(img`
     ........................
     ........................
@@ -148,3 +160,5 @@ scene.setBackgroundImage(img`
     bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
     `)
 tiles.setCurrentTilemap(tilemap`level1`)
+info.startCountdown(20)
+scene.cameraFollowSprite(mySprite)
